@@ -1,4 +1,4 @@
-# backstage-auth0-createapp-poc
+# backstage-auth-poc
 
 ## create a backstage project using the "create-app" command
 ``` 
@@ -49,7 +49,7 @@
         clientSecret: xxxx
     and:
         Allowed Callback URLs:
-            (where we insert the project name in s24 url e.g backstage-auth-poc
+            (where we insert the project name in url e.g backstage-auth-poc
             http://localhost:7007/api/auth/auth0/handler/frame, https://backstage-auth-poc.account.and.path.net/api/auth/auth0/handler/frame
         Allowed logout URLs:
             http://localhost:7007/api/auth/auth0/logout, https://backstage-auth-poc.account.and.path.net/api/auth/auth0/logout           
@@ -81,8 +81,6 @@
         
           return callback(null, user, context);
         }
-    NOTE: possibly Auth0 actions are more suitable? To investigate.
-3.  
 ```
 
 
