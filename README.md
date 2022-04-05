@@ -1,4 +1,4 @@
-# backstage-auth0-createapp-poc
+# backstage-auth-poc
 
 ## create a backstage project using the "create-app" command
 ``` 
@@ -49,7 +49,7 @@
         clientSecret: xxxx
     and:
         Allowed Callback URLs:
-            (where we insert the project name in s24 url e.g backstage-auth-poc
+            (where we insert the project name in url e.g backstage-auth-poc
             http://localhost:7007/api/auth/auth0/handler/frame, https://backstage-auth-poc.account.and.path.net/api/auth/auth0/handler/frame
         Allowed logout URLs:
             http://localhost:7007/api/auth/auth0/logout, https://backstage-auth-poc.account.and.path.net/api/auth/auth0/logout           
@@ -81,7 +81,11 @@
         
           return callback(null, user, context);
         }
-    NOTE: possibly Auth0 actions are more suitable? To investigate.
+3.  Add a user in Auth0 console as we want to use it as our identity provider.
+    * make sure the user is configured to utilise Username-Password authentication
+    * register an email address with a domain that matches the domain used in the rule above!
+    * this user will be asked if they trust the backstage application when they try to login
+    via the Oauth dialog screen during their first backstage login.
 ```
 
 ## Add Auth0 to application
@@ -94,10 +98,12 @@
           providers:
             auth0:
               development:
-                clientId: xxxx #${AUTH_AUTH0_CLIENT_ID}
-                clientSecret: xxxx #${AUTH_AUTH0_CLIENT_SECRET}
-                domain: xxxx.eu.auth0.com #${AUTH_AUTH0_DOMAIN_ID}
-
+                clientId: ${AUTH_AUTH0_CLIENT_ID}
+                clientSecret: ${AUTH_AUTH0_CLIENT_SECRET}
+                domain: ${AUTH_AUTH0_DOMAIN_ID}
+    Export vars in your bash shell that the backstage application is launched from.
+        export AUTH_AUTH0_CLIENT_ID=xxxx
+        and so on.
 2.  
 ```
 
