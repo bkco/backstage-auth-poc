@@ -55,9 +55,18 @@ techdocs:
   publisher:
     type: 'local' # Alternatives - 'googleGcs' or 'awsS3'. Read documentation for using alternatives.
 
+#auth:
+#  # see https://backstage.io/docs/auth/ to learn about auth providers
+#  providers: {}
+
 auth:
-  # see https://backstage.io/docs/auth/ to learn about auth providers
-  providers: {}
+  environment: development
+  providers:
+    auth0:
+      development:
+        clientId: Qg0Dfx0yX6smEOzEnMSs5BmqRrfNxlub #${AUTH_AUTH0_CLIENT_ID}
+        clientSecret: tqRHMjZRo824i2K34pbvC1Vf-oYKm4WuZYgy-QVeUfzUWjwBDJPzanjqoNvRu6Dd #${AUTH_AUTH0_CLIENT_SECRET}
+        domain: bkco.eu.auth0.com #${AUTH_AUTH0_DOMAIN_ID}
 
 scaffolder:
   # see https://backstage.io/docs/features/software-templates/configuration for software template options

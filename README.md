@@ -82,7 +82,23 @@
           return callback(null, user, context);
         }
     NOTE: possibly Auth0 actions are more suitable? To investigate.
-3.  
+```
+
+## Add Auth0 to application
+```
+1.  Add credentials to:
+        /home/brian/Documents/CODE/GITHUB/backstage-auth-poc/app/app-config.yaml
+    where:
+        auth:
+          environment: development
+          providers:
+            auth0:
+              development:
+                clientId: xxxx #${AUTH_AUTH0_CLIENT_ID}
+                clientSecret: xxxx #${AUTH_AUTH0_CLIENT_SECRET}
+                domain: xxxx.eu.auth0.com #${AUTH_AUTH0_DOMAIN_ID}
+
+2.  
 ```
 
 
