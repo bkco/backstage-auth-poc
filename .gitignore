@@ -1,3 +1,24 @@
+# gitignore rules: https://labs.consol.de/de/development/git/2017/02/22/gitignore.html
+
+### cdk ###
+.cdk.staging
+cdk.out
+
+### DOT files ###
+# ignore all . files and . folders from being checked in e.g don't commit to repo .idea/
+.*
+# allow .gitignore file
+!/.gitignore
+
+
+### IntelliJ ###
+build/
+out/
+*.iml
+*.iws
+*.ipr
+*.rdb
+
 # macOS
 .DS_Store
 
@@ -13,7 +34,7 @@ lerna-debug.log*
 coverage
 
 # Dependencies
-node_modules/
+app/node_modules/
 
 # Node version directives
 .nvmrc

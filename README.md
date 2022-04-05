@@ -44,26 +44,22 @@
         Application > New Application > Single Page Application
     where: 
         name: backstage-auth0-poc
-        clientId: Qg0Dfx0yX6smEOzEnMSs5BmqRrfNxlub
-        domain: bkco.eu.auth0.com
-        clientSecret: tqRHMjZRo824i2K34pbvC1Vf-oYKm4WuZYgy-QVeUfzUWjwBDJPzanjqoNvRu6Dd
+        clientId: xxxx
+        domain: mydomain.eu.auth0.com
+        clientSecret: xxxx
     and:
         Allowed Callback URLs:
-            (where we insert the project name in s24 url e.g backstage-auth0-poc
-            http://localhost:7007/api/auth/auth0/handler/frame, https://backstage-auth0-poc.s24-playground.eu-west-1.infinity.s24cloud.net/api/auth/auth0/handler/frame
-            OR
-            http://localhost:7007/api/auth/auth0/handler/frame, https://hackweek-2021-dev-portal.s24-playground.eu-west-1.infinity.s24cloud.net/api/auth/auth0/handler/frame
+            (where we insert the project name in s24 url e.g backstage-auth-poc
+            http://localhost:7007/api/auth/auth0/handler/frame, https://backstage-auth-poc.account.and.path.net/api/auth/auth0/handler/frame
         Allowed logout URLs:
-            http://localhost:7007/api/auth/auth0/logout, https://backstage-auth0-poc.s24-playground.eu-west-1.infinity.s24cloud.net/api/auth/auth0/logout
-            OR
-            http://localhost:7007/api/auth/auth0/logout, https://hackweek-2021-dev-portal.s24-playground.eu-west-1.infinity.s24cloud.net/api/auth/auth0/logout           
+            http://localhost:7007/api/auth/auth0/logout, https://backstage-auth-poc.account.and.path.net/api/auth/auth0/logout           
     and: 
         save
         
 2.  Add an "Auth Pipeline" rule as a check users is from specific organization:
         Auth Pipeline > Rule > Create Rule
     where:
-        name: is-member-of-scout24-domain-rule
+        name: is-member-of-yourdomain-rule
     and empty rule with content:
         function emailDomainWhitelist(user, context, callback) {
     
@@ -72,7 +68,7 @@
             //return callback(new UnauthorizedError('Access denied.'));
           //}
         
-          const whitelist = ['scout24.com']; //authorized domains
+          const whitelist = ['yourdomainhere.com']; //authorized domains
           const userHasAccess = whitelist.some(
               function (domain) {
                 const emailSplit = user.email.split('@');
