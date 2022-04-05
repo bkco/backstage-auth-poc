@@ -64,9 +64,16 @@ auth:
   providers:
     auth0:
       development:
-        clientId: Qg0Dfx0yX6smEOzEnMSs5BmqRrfNxlub #${AUTH_AUTH0_CLIENT_ID}
-        clientSecret: tqRHMjZRo824i2K34pbvC1Vf-oYKm4WuZYgy-QVeUfzUWjwBDJPzanjqoNvRu6Dd #${AUTH_AUTH0_CLIENT_SECRET}
-        domain: bkco.eu.auth0.com #${AUTH_AUTH0_DOMAIN_ID}
+        clientId: ${AUTH_AUTH0_CLIENT_ID} Qg0Dfx0yX6smEOzEnMSs5BmqRrfNxlub
+        clientSecret: ${AUTH_AUTH0_CLIENT_SECRET} tqRHMjZRo824i2K34pbvC1Vf-oYKm4WuZYgy-QVeUfzUWjwBDJPzanjqoNvRu6Dd
+        domain: ${AUTH_AUTH0_DOMAIN_ID} bkco.eu.auth0.com
+
+  providers:
+    auth0:
+      development:
+        clientId: ${AUTH_AUTH0_CLIENT_ID}
+        clientSecret: ${AUTH_AUTH0_CLIENT_SECRET}
+        domain: ${AUTH_AUTH0_DOMAIN_ID}
 
 scaffolder:
   # see https://backstage.io/docs/features/software-templates/configuration for software template options
