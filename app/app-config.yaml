@@ -30,14 +30,15 @@ backend:
     store: memory
   # workingDirectory: /tmp # Use this to configure a working directory for the scaffolder, defaults to the OS temp-dir
 
-integrations:
-  github:
-    - host: github.com
-      token: ${GITHUB_TOKEN}
-    ### Example for how to add your GitHub Enterprise instance using the API:
-    # - host: ghe.example.net
-    #   apiBaseUrl: https://ghe.example.net/api/v3
-    #   token: ${GHE_TOKEN}
+# IF YOU ENABLE THIS IT BREAKS ALL THE OUT OF THE BOX CATALOGS
+#integrations:
+#  github:
+#    - host: github.com
+#      token: ${GITHUB_TOKEN}
+#    ### Example for how to add your GitHub Enterprise instance using the API:
+#    # - host: ghe.example.net
+#    #   apiBaseUrl: https://ghe.example.net/api/v3
+#    #   token: ${GHE_TOKEN}
 
 proxy:
   '/test':
@@ -55,7 +56,7 @@ techdocs:
   publisher:
     type: 'local' # Alternatives - 'googleGcs' or 'awsS3'. Read documentation for using alternatives.
 
-#auth:
+2#auth:
 #  # see https://backstage.io/docs/auth/ to learn about auth providers
 #  providers: {}
 
@@ -71,6 +72,8 @@ auth:
 scaffolder:
   # see https://backstage.io/docs/features/software-templates/configuration for software template options
 
+
+# BOILERPLATE BELOW THAT COMES WITH CREATE-APP. Additional rules:allow could be Template & Domain
 catalog:
   import:
     entityFilename: catalog-info.yaml
@@ -111,3 +114,23 @@ catalog:
       target: https://github.com/backstage/software-templates/blob/main/scaffolder-templates/docs-template/template.yaml
       rules:
         - allow: [Template]
+#  # TODO review this as processor
+#  processors:
+#    githubOrg:
+#      providers:
+#        - target: https://github.com
+#          token: ${GITHUB_TOKEN}
+#        #### Example for how to add your GitHub Enterprise instance using the API:
+#        # - target: https://ghe.example.net
+#        #   apiBaseUrl: https://ghe.example.net/api
+#        #   token: ${GHE_TOKEN}
+#    microsoftGraphOrg:
+#    ### Example for how to add your Microsoft Graph tenant
+#    #providers:
+#    #  - target: https://graph.microsoft.com/v1.0
+#    #    authority: https://login.microsoftonline.com
+#    #    tenantId: ${MICROSOFT_GRAPH_TENANT_ID}
+#    #    clientId: ${MICROSOFT_GRAPH_CLIENT_ID}
+#    #    clientSecret: ${MICROSOFT_GRAPH_CLIENT_SECRET_TOKEN}
+#    #    userFilter: accountEnabled eq true and userType eq 'member'
+#    #    groupFilter: securityEnabled eq false and mailEnabled eq true and groupTypes/any(c:c+eq+'Unified')

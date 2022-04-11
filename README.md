@@ -107,6 +107,23 @@
 2.  
 ```
 
+## Add Github integration
+``` 
+1.  Follow guide:
+        https://backstage.io/docs/integrations/github/org
+    where app-config.yml has:
+        integrations:
+          github:
+            - host: github.com
+              token: ${GITHUB_TOKEN}
+            ### Example for how to add your GitHub Enterprise instance using the API:
+            # - host: ghe.example.net
+            #   apiBaseUrl: https://ghe.example.net/api/v3
+            #   token: ${GHE_TOKEN}
+    In above use normal github or github enterprise.
+2.  
+```
+
 
 ### TODO
 gitlab remote not enabled
